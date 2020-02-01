@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TileInstance, TileData} from "../models/TileModels";
 import {emptyTile, endTile, wallTile} from "../models/SpecialTiles";
-import jsonfile from 'jsonfile';
+import axios from 'axios';
 
 @Component({
   selector: 'app-grid',
@@ -11,12 +11,21 @@ import jsonfile from 'jsonfile';
 export class GridComponent implements OnInit {
 
   filename: string;
-  tileset: Array<TileData>;
-  grid: Array<TileInstance>;
+  tileset: Array<TileData> = [];
+  grid: Array<TileInstance> = [];
+  axiosInstance = axios.create({
+    baseURL: 'http://localhost:4200/assets'
+  });
 
   constructor() {
-    this.filename = "../../assets/levels/level01.json";
-    let levelData = jsonfile.readFileSync(this.filename);
+    this.filename = "levels/level01.json";
+  }
+
+  async ngOnInit() {
+    let response = await this.axiosInstance.get(this.filename);
+    console.log(response);
+    let levelData = response.data;
+    console.log(levelData);
     for (const tileData of levelData.tileset) {
       this.tileset.push(new TileData(tileData));
     }
@@ -46,9 +55,6 @@ export class GridComponent implements OnInit {
         });
       }
     }
-  }
-
-  ngOnInit() {
     console.log(this.filename);
     console.log(this.tileset);
     console.log(this.grid);

@@ -45,7 +45,8 @@
   ],
   "grid": [
     [ -1, 2, 3, -2 ],
-    [  0, 1, 0,  5 ]
+    [  0, 1, 4,  5 ]
   ],
-  "objective": "level01.wav"
+  "resultSound": "level01.wav",
+  "solution": [[0, 1, 2, 3, 4, 5]]
 }
