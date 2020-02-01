@@ -1,7 +1,6 @@
 <div class="display_container">
   <div class="case_container">
-    <div *ngFor="let tile of grid , index as i " [ngStyle]="{'grid-column-start': tile.x+1, 'grid-row-start': tile.y+1}">
-      <div>{{tile.y}}{{tile.x}}</div>
+    <div *ngFor="let item of grid | keyvalue" [ngStyle]="{'grid-column-start': item.key.split('.')[0]*1+1, 'grid-row-start': item.key.split('.')[1]*1+1}">
       <app-tile></app-tile>
     </div>
     <app-player></app-player>

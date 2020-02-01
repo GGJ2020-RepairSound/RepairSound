@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {TileInstance, TileData} from '../models/TileModels';
+import {TileInstance, TileData} from "../models/TileModels";
 import {emptyTile, endTile, wallTile} from "../models/SpecialTiles";
 import axios from 'axios';
+import {TileComponent} from "../tile/tile.component";
 
 @Component({
   selector: 'app-grid',
@@ -11,52 +12,34 @@ import axios from 'axios';
 export class GridComponent implements OnInit {
 
   filename: string;
-  tileset: Array<TileData> = [];
-  grid: Array<TileInstance> = [];
+  grid: Map<string, TileComponent> = new Map();
+  gridWidth: number = 5;
+  gridHeight: number = 4;
+  resultSound: any; // à changer
+  solution: Array<Array<number>>;
   axiosInstance = axios.create({
     baseURL: 'http://localhost:4200/assets'
   });
 
   constructor() {
     this.filename = 'levels/level01.json';
+
+    for (let y = 0; y < this.gridHeight; ++y) {
+      for (let x = 0; x < this.gridWidth; ++x) {
+        this.grid.set(x+"."+y, null);
+      }
+    }
   }
 
   async ngOnInit() {
-    const response = await this.axiosInstance.get(this.filename);
+    let response = await this.axiosInstance.get(this.filename);
     console.log(response);
-    const levelData = response.data;
+    let levelData = response.data;
     console.log(levelData);
-    for (const tileData of levelData.tileset) {
-      this.tileset.push(new TileData(tileData));
-    }
-    for (const [y, row] of levelData.grid.entries()) {
-      for (const [x, tileID] of row.entries()) {
-        let curTileData: TileData;
-        if (tileID === null) {
-          // empty tile
-          curTileData = emptyTile;
-        } else if (tileID == -1) {
-          // spawn : init player position and leave tile empty
-          curTileData = emptyTile;
-          // todo init player position
-        } else if (tileID == -2) {
-          // end tile
-          curTileData = endTile;
-        } else if (tileID == -3) {
-          // wall
-          curTileData = wallTile;
-        } else {
-          curTileData = this.tileset[tileID];
-        }
-        this.grid.push({
-          tileData: curTileData,
-          x,
-          y
-        });
-      }
+    for (const [id, tile] of levelData.tiles.entries()) {
+      this.grid.set(tile.x+"."+tile.y, new TileComponent(id, tile));
     }
     console.log(this.filename);
-    console.log(this.tileset);
     console.log(this.grid);
   }
 

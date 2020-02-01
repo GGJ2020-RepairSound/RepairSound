@@ -1,6 +1,8 @@
 {
-  "tileset": [
+  "tiles": [
     {
+      "x": 1,
+      "y": 1,
       "img": "do_guitar.png",
       "sound": "do_guitar.wav",
       "effect": {
@@ -8,6 +10,8 @@
       }
     },
     {
+      "x": 2,
+      "y": 1,
       "img": "mi_guitar.png",
       "sound": "mi_guitar.wav",
       "effect": {
@@ -15,6 +19,8 @@
       }
     },
     {
+      "x": 3,
+      "y": 1,
       "img": "sol_guitar.png",
       "sound": "sol_guitar.wav",
       "effect": {
@@ -22,6 +28,8 @@
       }
     },
     {
+      "x": 1,
+      "y": 2,
       "img": "do_violin.png",
       "sound": "do_violin.wav",
       "effect": {
@@ -29,6 +37,8 @@
       }
     },
     {
+      "x": 2,
+      "y": 2,
       "img": "mi_violin.png",
       "sound": "mi_violin.wav",
       "effect": {
@@ -36,16 +46,14 @@
       }
     },
     {
+      "x": 3,
+      "y": 2,
       "img": "sol_violin.png",
       "sound": "sol_violin.wav",
       "effect": {
         "type": "add_sound"
       }
     }
-  ],
-  "grid": [
-    [ -1, 2, 3, -2 ],
-    [  0, 1, 4,  5 ]
   ],
   "resultSound": "level01.wav",
   "solution": [[0, 1, 2, 3, 4, 5]]
