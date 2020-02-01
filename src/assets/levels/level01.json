@@ -1,0 +1,51 @@
+{
+  "tileset": [
+    {
+      "img": "do_guitar.png",
+      "sound": "do_guitar.wav",
+      "effect": {
+        "type": "add_sound"
+      }
+    },
+    {
+      "img": "mi_guitar.png",
+      "sound": "mi_guitar.wav",
+      "effect": {
+        "type": "add_sound"
+      }
+    },
+    {
+      "img": "sol_guitar.png",
+      "sound": "sol_guitar.wav",
+      "effect": {
+        "type": "add_sound"
+      }
+    },
+    {
+      "img": "do_violin.png",
+      "sound": "do_violin.wav",
+      "effect": {
+        "type": "add_sound"
+      }
+    },
+    {
+      "img": "mi_violin.png",
+      "sound": "mi_violin.wav",
+      "effect": {
+        "type": "add_sound"
+      }
+    },
+    {
+      "img": "sol_violin.png",
+      "sound": "sol_violin.wav",
+      "effect": {
+        "type": "add_sound"
+      }
+    }
+  ],
+  "grid": [
+    [ -1, 2, 3, -2 ],
+    [  0, 1, 0,  5 ]
+  ],
+  "objective": "level01.wav"
+}

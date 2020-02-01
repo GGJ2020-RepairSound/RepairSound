@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {TilesModel} from "../models/TilesModel";
+import {TileInstance, TileData} from "../models/TileModels";
+import {emptyTile, endTile, wallTile} from "../models/SpecialTiles";
+import jsonfile from 'jsonfile';
 
 @Component({
   selector: 'app-grid',
@@ -8,21 +10,48 @@ import {TilesModel} from "../models/TilesModel";
 })
 export class GridComponent implements OnInit {
 
+  filename: string;
+  tileset: Array<TileData>;
+  grid: Array<TileInstance>;
+
   constructor() {
+    this.filename = "../../assets/levels/level01.json";
+    let levelData = jsonfile.readFileSync(this.filename);
+    for (const tileData of levelData.tileset) {
+      this.tileset.push(new TileData(tileData));
+    }
+    for (const [y, row] of levelData.grid.entries()) {
+      for (const [x, tileID] of row.entries()) {
+        let curTileData: TileData;
+        if (tileID === null) {
+          // empty tile
+          curTileData = emptyTile;
+        } else if (tileID == -1) {
+          // spawn : init player position and leave tile empty
+          curTileData = emptyTile;
+          // todo init player position
+        } else if (tileID == -2) {
+          // end tile
+          curTileData = endTile;
+        } else if (tileID == -3) {
+          // wall
+          curTileData = wallTile;
+        } else {
+          curTileData = this.tileset[tileID];
+        }
+        this.grid.push({
+          'tileData': curTileData,
+          'x': x,
+          'y': y
+        });
+      }
+    }
   }
 
-  rowSize: number;
-  colSize: number;
-  test: TilesModel = new TilesModel('',1 , 1);
-  test2: TilesModel = new TilesModel('',3, 2) ;
-  grid: Array<TilesModel>;
-  tileX: any;
-
-
   ngOnInit() {
-    this.grid = [this.test, this.test2];
-    console.log(this.tileX = this.grid.keys());
-    console.log(this.grid.values())
+    console.log(this.filename);
+    console.log(this.tileset);
+    console.log(this.grid);
   }
 
 }
