@@ -9,7 +9,11 @@ export class TileService {
 
   constructor() {
   }
+  addGroup(soundArray:any[]){
+    const group = new Pizzicato.Group(soundArray);
+    group.play();
 
+  }
 
   addReverb(sound: any): any {
     const reverb = new Pizzicato.Effects.Reverb({

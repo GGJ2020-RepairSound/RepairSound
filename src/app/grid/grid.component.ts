@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import axios from 'axios';
+import Pizzicato from 'pizzicato';
+import {TileService} from "../services/tile.service";
 
 @Component({
   selector: 'app-grid',
@@ -20,7 +22,7 @@ export class GridComponent implements OnInit {
   });
 
 
-  constructor() {
+  constructor(private tileService:TileService) {
     this.filename = 'levels/level01.json';
     for (let y = 0; y < this.gridHeight; ++y) {
       for (let x = 0; x < this.gridWidth; ++x) {
@@ -43,7 +45,7 @@ export class GridComponent implements OnInit {
   }
   onCatchSound(event) {
     this.catchSound = event;
-    this.resultSound.push(this.catchSound);
+    this.resultSound.push(new Pizzicato.Sound('../../assets/sounds/'+this.catchSound.soundOrEffect));
     console.log('result', this.resultSound);
   }
 

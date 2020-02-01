@@ -13,7 +13,7 @@ export class TileComponent implements OnInit {
   @Input() soundPathOrEffect: any;
   @Output() eventSound = new EventEmitter<any>();
 
-  constructor(private soundService: TileService) {
+  constructor(private tileService: TileService) {
   }
 
   throwSound() {

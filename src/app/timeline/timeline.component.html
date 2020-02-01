@@ -1,6 +1,10 @@
 <div class="container">
   <div class="timeline-container">
-
+<div *ngFor="let line of spanArray; first as firstSpan">
+  <ng-container *ngIf="!firstSpan">
+  <div class="line"></div>
+  </ng-container>
+</div>
   </div>
   <div class="buttons-container">
     <button>Play</button>
