@@ -2,50 +2,50 @@
   "tiles": [
     {
       "id": 0,
-      "x": 1,
+      "x": 0,
       "y": 1,
       "img": "GarçonGuitareBF.png",
      "soundOrEffect": "do_guitar.wav"
     },
     {
       "id": 1,
-      "x": 2,
+      "x": 1,
       "y": 1,
       "img": "GarçonGuitareBO.png",
      "soundOrEffect": "mi_guitar.wav"
     },
     {
       "id": 2,
-      "x": 3,
+      "x": 2,
       "y": 1,
       "img": "MmeGuitareBF.png",
      "soundOrEffect": "sol_guitar.wav"
     },
     {
       "id": 3,
-      "x": 1,
-      "y": 2,
+      "x": 3,
+      "y": 1,
       "img": "do_violin.png",
      "soundOrEffect": "do_violin.wav"
     },
     {
       "id": 4,
-      "x": 2,
-      "y": 2,
+      "x": 4,
+      "y": 1,
       "img": "mi_violin.png",
      "soundOrEffect": "mi_violin.wav"
     },
     {
       "id": 5,
-      "x": 3,
-      "y": 2,
+      "x": 5,
+      "y": 1,
       "img": "sol_violin.png",
      "soundOrEffect": "sol_violin.wav"
     },
     {
       "id": 6,
-      "x": 0,
-      "y": 3,
+      "x": 7,
+      "y": 1,
       "img": "do_guitar.png",
       "soundOrEffect":"addReveb"
     }

@@ -10,8 +10,8 @@ export class GridComponent implements OnInit {
 
   filename: string;
   grid: Map<string, any> = new Map();
-  gridWidth = 5;
-  gridHeight = 4;
+  gridWidth = 8;
+  gridHeight = 3;
   resultSound: Array<any> = []; // à changer
   solution: Array<Array<number>>;
   catchSound: any;

@@ -1,0 +1,27 @@
+.container {
+  width: 90vw;
+  height: 90%;
+  display: flex;
+}
+.timeline-container {
+  border: 1px solid black;
+  width: 80%;
+  height: 100%;
+  display: grid;
+}
+.buttons-container {
+  width: 20%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  align-items: center;
+  justify-items: center;
+}
+button {
+  border: 1px solid black;
+  width: 80px;
+  max-width: 7vw;
+  height: 80px;
+  max-height: 7vw;
+}
