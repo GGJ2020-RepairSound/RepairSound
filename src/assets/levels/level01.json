@@ -4,61 +4,50 @@
       "id": 0,
       "x": 1,
       "y": 1,
-      "img": "do_guitar.png",
-      "sound": "do_guitar.wav",
-      "effect": {
-        "type": "add_sound"
-      }
+      "img": "GarçonGuitareBF.png",
+     "soundOrEffect": "do_guitar.wav"
     },
     {
       "id": 1,
       "x": 2,
       "y": 1,
-      "img": "mi_guitar.png",
-      "sound": "mi_guitar.wav",
-      "effect": {
-        "type": "add_sound"
-      }
+      "img": "GarçonGuitareBO.png",
+     "soundOrEffect": "mi_guitar.wav"
     },
     {
       "id": 2,
       "x": 3,
       "y": 1,
-      "img": "sol_guitar.png",
-      "sound": "sol_guitar.wav",
-      "effect": {
-        "type": "add_sound"
-      }
+      "img": "MmeGuitareBF.png",
+     "soundOrEffect": "sol_guitar.wav"
     },
     {
       "id": 3,
       "x": 1,
       "y": 2,
       "img": "do_violin.png",
-      "sound": "do_violin.wav",
-      "effect": {
-        "type": "add_sound"
-      }
+     "soundOrEffect": "do_violin.wav"
     },
     {
       "id": 4,
       "x": 2,
       "y": 2,
       "img": "mi_violin.png",
-      "sound": "mi_violin.wav",
-      "effect": {
-        "type": "add_sound"
-      }
+     "soundOrEffect": "mi_violin.wav"
     },
     {
       "id": 5,
       "x": 3,
       "y": 2,
       "img": "sol_violin.png",
-      "sound": "sol_violin.wav",
-      "effect": {
-        "type": "add_sound"
-      }
+     "soundOrEffect": "sol_violin.wav"
+    },
+    {
+      "id": 6,
+      "x": 0,
+      "y": 3,
+      "img": "do_guitar.png",
+      "soundOrEffect":"addReveb"
     }
   ],
   "resultSound": "level01.wav",

@@ -41,6 +41,7 @@ export class TileService {
 
   /*Son à droite (1) ou à gauche (-1)*/
   addStereo(sound: any): any {
+    console.log('yes');
     const stereoPanner = new Pizzicato.Effects.StereoPanner({
       pan: 1
     });
