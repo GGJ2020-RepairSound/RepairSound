@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TileService} from '../services/tile.service';
 import Pizzicato from 'pizzicato';
+import {TileData} from "../models/TileModel";
 
 @Component({
   selector: 'app-tile',
@@ -8,44 +9,26 @@ import Pizzicato from 'pizzicato';
   styleUrls: ['./tile.component.scss']
 })
 export class TileComponent implements OnInit {
-  @Input() id: number;
-  @Input() img: string;
-  @Input() soundPathOrEffect: any;
-  @Output() eventSound = new EventEmitter<any>();
+
+  @Input() jsonData: any;
+  @Output() hasClicked = new EventEmitter<TileData>();
+  data: TileData;
 
   constructor(private soundService: TileService) {
   }
 
-  throwSound() {
-    const mySound = new Object({
-      id: this.id,
-      img: this.img,
-      soundOrEffect: this.soundPathOrEffect,
-    });
-    this.eventSound.emit(mySound);
-  }
-
-  onClick() {
-    if (this.soundPathOrEffect.includes('.wav')) {
-      this.playSound();
-    } else {
-      // this.sendEffect();
-    }
-  }
-
-  playSound() {
-    const sound = new Pizzicato.Sound('../../assets/sounds/' + this.soundPathOrEffect, () => {
-      // Sound loaded!
-      sound.play();
-    });
-  }
-
-  sendEffect() {
-    this.eventSound.emit(this.soundPathOrEffect);
+  emitData() {
+    this.hasClicked.emit(this.data);
   }
 
   ngOnInit() {
-
+    this.data.id = this.jsonData.id;
+    this.data.img = this.jsonData.img;
+    if (this.jsonData.action.type === "sound") {
+      this.data.sound = new Pizzicato.Sound('../../assets/sounds/' + this.jsonData.action.sound_file);
+    } else {
+      this.data.effect = Reflect.get(TileService, this.jsonData.action.type)()
+    }
   }
 
 }

@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import axios from 'axios';
+import {TileData} from "../models/TileModel";
 
 @Component({
   selector: 'app-grid',
@@ -12,13 +13,9 @@ export class GridComponent implements OnInit {
   grid: Map<string, any> = new Map();
   gridWidth = 5;
   gridHeight = 4;
-  resultSound: Array<any> = []; // à changer
-  solution: Array<Array<number>>;
-  catchSound: any;
   axiosInstance = axios.create({
     baseURL: 'http://localhost:4200/assets'
   });
-
 
   constructor() {
     this.filename = 'levels/level01.json';
@@ -41,10 +38,9 @@ export class GridComponent implements OnInit {
     console.log(this.filename);
     console.log(this.grid);
   }
-  onCatchSound(event) {
-    this.catchSound = event;
-    this.resultSound.push(this.catchSound);
-    console.log('result', this.resultSound);
+  forwardData(data: TileData) {
+    console.log('data', data);
+    // timeline.push(data);
   }
 
 }

@@ -3,8 +3,7 @@
     <div *ngFor="let item of grid | keyvalue"
          [ngStyle]="{'grid-column-start': item.key.split('.')[0]*1+1, 'grid-row-start': item.key.split('.')[1]*1+1}">
       <ng-container *ngIf="item.value !== null">
-        <app-tile (eventSound)=onCatchSound($event) [id]="item.value.id" [img]="item.value.img"
-                  [soundPathOrEffect]="item.value.soundOrEffect"></app-tile>
+        <app-tile (hasClicked)=forwardData($event) [jsonData]="item.value"></app-tile>
       </ng-container>
       <ng-container *ngIf="item.value === null">
         <div class="empty-tile"></div>
