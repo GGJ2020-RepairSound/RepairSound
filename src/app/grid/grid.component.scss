@@ -1,3 +1,8 @@
+.display_container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
 .case_container{
   margin: auto 5vh auto auto;
   display: grid;
@@ -6,6 +11,11 @@
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 25% 25% 25% 25%;
   //align-items: center;
+}
+.empty-tile{
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
 }
 .player_container{
   position:absolute;

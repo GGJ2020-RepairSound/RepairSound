@@ -1,8 +1,12 @@
 <div class="display_container">
   <div class="case_container">
     <div *ngFor="let item of grid | keyvalue" [ngStyle]="{'grid-column-start': item.key.split('.')[0]*1+1, 'grid-row-start': item.key.split('.')[1]*1+1}">
-      <app-tile></app-tile>
+      <ng-container *ngIf="item.value !== null">
+        <app-tile [id]="item.value.id" [img]="item.value.img" [soundpath]="item.value.sound" [effectObject]="item.value.effect"></app-tile>
+      </ng-container>
+      <ng-container>
+        <div class="empty-tile"></div>
+      </ng-container>
     </div>
-    <app-player></app-player>
   </div>
 </div>

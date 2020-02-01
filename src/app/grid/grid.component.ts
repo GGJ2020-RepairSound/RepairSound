@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {TileInstance, TileData} from "../models/TileModels";
-import {emptyTile, endTile, wallTile} from "../models/SpecialTiles";
 import axios from 'axios';
 import {TileComponent} from "../tile/tile.component";
 
@@ -12,7 +10,7 @@ import {TileComponent} from "../tile/tile.component";
 export class GridComponent implements OnInit {
 
   filename: string;
-  grid: Map<string, TileComponent> = new Map();
+  grid: Map<string, any> = new Map();
   gridWidth: number = 5;
   gridHeight: number = 4;
   resultSound: any; // à changer
@@ -32,12 +30,13 @@ export class GridComponent implements OnInit {
   }
 
   async ngOnInit() {
+
     let response = await this.axiosInstance.get(this.filename);
     console.log(response);
     let levelData = response.data;
     console.log(levelData);
-    for (const [id, tile] of levelData.tiles.entries()) {
-      this.grid.set(tile.x+"."+tile.y, new TileComponent(id, tile));
+    for (const tile of levelData.tiles) {
+      this.grid.set(tile.x+"."+tile.y, tile);
     }
     console.log(this.filename);
     console.log(this.grid);

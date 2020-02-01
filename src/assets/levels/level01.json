@@ -1,6 +1,7 @@
 {
   "tiles": [
     {
+      "id": 0,
       "x": 1,
       "y": 1,
       "img": "do_guitar.png",
@@ -10,6 +11,7 @@
       }
     },
     {
+      "id": 1,
       "x": 2,
       "y": 1,
       "img": "mi_guitar.png",
@@ -19,6 +21,7 @@
       }
     },
     {
+      "id": 2,
       "x": 3,
       "y": 1,
       "img": "sol_guitar.png",
@@ -28,6 +31,7 @@
       }
     },
     {
+      "id": 3,
       "x": 1,
       "y": 2,
       "img": "do_violin.png",
@@ -37,6 +41,7 @@
       }
     },
     {
+      "id": 4,
       "x": 2,
       "y": 2,
       "img": "mi_violin.png",
@@ -46,6 +51,7 @@
       }
     },
     {
+      "id": 5,
       "x": 3,
       "y": 2,
       "img": "sol_violin.png",

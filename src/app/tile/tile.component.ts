@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-tile',
@@ -6,18 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tile.component.scss']
 })
 export class TileComponent implements OnInit {
+  @Input() id: number;
+  @Input() img: string;
+  @Input() soundpath: any;
+  @Input() effectObject: any;
 
-  img: string;
-  sound: any;
-  effect: any;
-
-  constructor(public id: number, jsonData: any) {
-    this.img = jsonData.img;
-    this.sound = jsonData.sound; // change this later
-    this.effect = jsonData.effect; // change this later
+  constructor() {
   }
 
   ngOnInit() {
+    // here load sound and effect
+    console.log(this.img);
+    console.log(this.soundpath);
+    console.log(this.effectObject);
   }
 
 }
