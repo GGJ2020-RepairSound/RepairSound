@@ -14,7 +14,7 @@ export class TileComponent implements OnInit {
   @Output() hasClicked = new EventEmitter<TileData>();
   data: TileData;
 
-  constructor(private soundService: TileService) {
+  constructor(private tileService: TileService) {
   }
 
   emitData() {

@@ -3,11 +3,16 @@
   height: 90%;
   display: flex;
 }
+
 .timeline-container {
   border: 1px solid black;
   width: 80%;
   height: 100%;
   display: grid;
+  grid-template-columns: repeat(10, 10%) ;
+  grid-template-rows: repeat(3 , 33%);
+  border-right: 1px solid grey;
+
 }
 .buttons-container {
   width: 20%;
@@ -17,6 +22,15 @@
   grid-template-rows: 50% 50%;
   align-items: center;
   justify-items: center;
+
+}
+.line{
+  height: 303%;
+  width: 2px;
+  background-color: black;
+  :first-child{
+    width: 0;
+  }
 }
 button {
   border: 1px solid black;
