@@ -1,0 +1,8 @@
+<div class="display_container">
+  <div class="case_container" *ngFor="let tile of grid , index as i ">
+    <div [ngStyle]="{'grid-area' : tile.y +'/'+tile.x+'/'+ (tile.y+1)*1+'/'+(tile.x+1)*1} ">{{tile.y}}{{tile.x}}</div>
+    <div class="tuile" [ngStyle]="{'grid-area' : tile.y +'/'+tile.x+'/'+ (tile.y+1)*1+'/'+(tile.x+1)*1} ">
+      <app-tiles></app-tiles>
+    </div>
+  </div>
+</div>
