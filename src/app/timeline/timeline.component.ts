@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {TileComponent} from "../tile/tile.component";
-import Pizzicato from 'pizzicato';
+import {Component, Input, OnInit} from '@angular/core';
+import {TileData} from "../models/TileModel";
 
 @Component({
   selector: 'app-timeline',
@@ -9,20 +8,22 @@ import Pizzicato from 'pizzicato';
 })
 export class TimelineComponent implements OnInit {
 
-  size: number = 10;
-  solution: Array<Array<number>>;
-  timeline: Array<Array<TileComponent>> = []; // à changer
-  catchSound: any;
-  resultSound: Array<any> = [];
-  spanArray:Array<any> = ['','','','','','','','','',''];
+  size = 10;
+  @Input() solution: Array<Array<number>>;
+  @Input() resultSoundSrc: string;
+  timeline: Array<Array<TileData>> = []; // à changer
+  currentColumn = 0;
 
-  constructor() { }
+  constructor() {
+    for (let i = 0; i < this.size; ++i) {
+      this.timeline.push([]);
+    }
+  }
 
   ngOnInit() {
   }
-  onCatchSound(event) {
-    this.catchSound = event;
-    this.resultSound.push(new Pizzicato.Sound('../../assets/sounds/'+this.catchSound.soundOrEffect));
-    console.log('result', this.resultSound);
+
+  public push(data: TileData) {
+    console.log(data);
   }
 }

@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {TileService} from '../services/tile.service';
+import {Component, EventEmitter, HostBinding, Input, OnInit, Output, ViewChild} from '@angular/core';
 import Pizzicato from 'pizzicato';
-import {TileData} from "../models/TileModel";
+import {TileData, tileEffects} from "../models/TileModel";
 
 @Component({
   selector: 'app-tile',
@@ -10,15 +9,21 @@ import {TileData} from "../models/TileModel";
 })
 export class TileComponent implements OnInit {
 
+  @Input() @HostBinding('style.grid-column-start') x: number;
+  @Input() @HostBinding('style.grid-row-start') y: number;
   @Input() jsonData: any;
   @Output() hasClicked = new EventEmitter<TileData>();
-  data: TileData;
+  data = new TileData();
+  @ViewChild('img', {static: false}) DOM_img: ViewChild;
 
-  constructor(private tileService: TileService) {
+  constructor() {
   }
 
-  emitData() {
+  onClick() {
+    // emit data
     this.hasClicked.emit(this.data);
+    // change image
+
   }
 
   ngOnInit() {
@@ -27,7 +32,7 @@ export class TileComponent implements OnInit {
     if (this.jsonData.action.type === "sound") {
       this.data.sound = new Pizzicato.Sound('../../assets/sounds/' + this.jsonData.action.sound_file);
     } else {
-      this.data.effect = Reflect.get(TileService, this.jsonData.action.type)()
+      this.data.effect = tileEffects.get(this.jsonData.action);
     }
   }
 

@@ -1,9 +1,7 @@
 {
   "tiles": [
-    {
+    [{
       "id": 0,
-      "x": 1,
-      "y": 1,
       "img": "GarçonGuitareBF.png",
       "action": {
         "type": "sound",
@@ -12,9 +10,7 @@
     },
     {
       "id": 1,
-      "x": 2,
-      "y": 1,
-      "img": "GarçonGuitareBO.png",
+      "img": "MrGuitareBF.png",
       "action": {
         "type": "sound",
         "sound_file": "mi_guitar.wav"
@@ -22,19 +18,15 @@
     },
     {
       "id": 2,
-      "x": 3,
-      "y": 1,
       "img": "MmeGuitareBF.png",
       "action": {
         "type": "sound",
         "sound_file": "sol_guitar.wav"
       }
-    },
-    {
+    }],
+    [{
       "id": 3,
-      "x": 1,
-      "y": 2,
-      "img": "do_violin.png",
+      "img": "MmeViolonBF.png",
       "action": {
         "type": "sound",
         "sound_file": "do_violin.wav"
@@ -42,9 +34,7 @@
     },
     {
       "id": 4,
-      "x": 2,
-      "y": 2,
-      "img": "mi_violin.png",
+      "img": "BebeViolonBF.png",
       "action": {
         "type": "sound",
         "sound_file": "mi_violin.wav"
@@ -52,24 +42,13 @@
     },
     {
       "id": 5,
-      "x": 3,
-      "y": 2,
-      "img": "sol_violin.png",
+      "img": "MrViolonBF.png",
       "action": {
         "type": "sound",
         "sound_file": "sol_violin.wav"
       }
-    },
-    {
-      "id": 6,
-      "x": 0,
-      "y": 3,
-      "img": "reverb.png",
-      "action": {
-        "type": "addReverb"
-      }
-    }
+    }]
   ],
-  "resultSound": "level01.wav",
+  "resultSoundSrc": "level01.wav",
   "solution": [[0, 1, 2], [3, 4, 5]]
 }

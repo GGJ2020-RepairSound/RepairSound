@@ -1,0 +1,17 @@
+<div class="display-container">
+  <div class="timeline-container">
+    <app-timeline [solution]="solution"></app-timeline>
+  </div>
+  <div class="grid-container">
+    <div class="grid" [ngStyle]="{
+      'grid-template-columns': computePercentages(gridWidth),
+      'grid-template-rows': computePercentages(gridHeight)
+    }">
+      <ng-template ngFor let-row [ngForOf]="tiles" let-y="index">
+        <ng-template ngFor let-tile [ngForOf]="row" let-x="index">
+          <app-tile (hasClicked)=forwardToTimeline($event) [x]="x+1" [y]="y+1" [jsonData]="tile"></app-tile>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>
