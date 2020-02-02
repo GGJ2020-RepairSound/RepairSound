@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostBinding, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, HostBinding, Input, OnInit, Output, ViewChild} from '@angular/core';
 import Pizzicato from 'pizzicato';
 import {TileData, tileEffects} from "../models/TileModel";
 
@@ -7,14 +7,15 @@ import {TileData, tileEffects} from "../models/TileModel";
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.scss']
 })
-export class TileComponent implements OnInit {
+export class TileComponent implements OnInit, AfterViewInit {
 
   @Input() @HostBinding('style.grid-column-start') x: number;
   @Input() @HostBinding('style.grid-row-start') y: number;
   @Input() jsonData: any;
   @Output() hasClicked = new EventEmitter<TileData>();
   data = new TileData();
-  @ViewChild('img', {static: false}) DOM_img: ViewChild;
+  background: HTMLElement;
+  timeoutID: any = null;
 
   constructor() {
   }
@@ -23,7 +24,14 @@ export class TileComponent implements OnInit {
     // emit data
     this.hasClicked.emit(this.data);
     // change image
-
+    this.background.style.backgroundPosition = '100% 0';
+    console.log(this.background.style);
+    // clear previous timer
+    clearTimeout(this.timeoutID);
+    this.timeoutID = setTimeout(() => {
+      this.background.style.backgroundPosition = '0 0';
+      console.log(this.background.style);
+    }, 500);
   }
 
   ngOnInit() {
@@ -36,6 +44,12 @@ export class TileComponent implements OnInit {
     }
   }
 
+  ngAfterViewInit() {
+    this.background = document.querySelector('.background-' + this.data.id);
+    console.log(this.background);
+  }
+
+  getBackgroundImage(): string {
+    return 'url("../../assets/images/' + this.data.img + '")';
+  }
 }
-
-

@@ -2,7 +2,7 @@
   "tiles": [
     [{
       "id": 0,
-      "img": "GarçonGuitareBF.png",
+      "img": "GarçonGuitare.png",
       "action": {
         "type": "sound",
         "sound_file": "do_guitar.wav"
@@ -10,7 +10,7 @@
     },
     {
       "id": 1,
-      "img": "MrGuitareBF.png",
+      "img": "MrGuitare.png",
       "action": {
         "type": "sound",
         "sound_file": "mi_guitar.wav"
@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "img": "MmeGuitareBF.png",
+      "img": "MmeGuitare.png",
       "action": {
         "type": "sound",
         "sound_file": "sol_guitar.wav"
@@ -26,7 +26,7 @@
     }],
     [{
       "id": 3,
-      "img": "MmeViolonBF.png",
+      "img": "MmeViolon.png",
       "action": {
         "type": "sound",
         "sound_file": "do_violin.wav"
@@ -34,7 +34,7 @@
     },
     {
       "id": 4,
-      "img": "BebeViolonBF.png",
+      "img": "BebeViolon.png",
       "action": {
         "type": "sound",
         "sound_file": "mi_violin.wav"
@@ -42,7 +42,7 @@
     },
     {
       "id": 5,
-      "img": "MrViolonBF.png",
+      "img": "MrViolon.png",
       "action": {
         "type": "sound",
         "sound_file": "sol_violin.wav"
