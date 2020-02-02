@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TileData} from "../models/TileModel";
+import Pizzicato from 'pizzicato';
 
 @Component({
   selector: 'app-timeline',
@@ -12,8 +13,8 @@ export class TimelineComponent implements OnInit {
   @Input() solution: Array<Array<number>>;
   @Input() resultSoundSrc: string;
   timeline: Array<Array<TileData>> = []; // à changer
+  currentSound:Array<any>=[];
   currentColumn = 0;
-
   constructor() {
     for (let i = 0; i < this.size; ++i) {
       this.timeline.push([]);
@@ -22,8 +23,19 @@ export class TimelineComponent implements OnInit {
 
   ngOnInit() {
   }
+  playCurrentSound(){
+       let newGroup = new Pizzicato.Group(this.currentSound);
+        newGroup.play();
 
+  }
+  playResultSound(){
+    // @ts-ignore
+    this.resultSoundSrc.play();
+  }
   public push(data: TileData) {
-    console.log(data);
+    this.currentSound.push(data.sound);
+    data.sound.play();
+    console.log(this.currentSound);
+
   }
 }

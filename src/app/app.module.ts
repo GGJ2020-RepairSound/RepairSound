@@ -6,16 +6,16 @@ import { AppComponent } from './app.component';
 import { LevelComponent } from './level/level.component';
 import { TileComponent } from './tile/tile.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { MenuComponent } from './menu/menu.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
+// import { MenuComponent } from './menu/menu.component';
+// import { MainpageComponent } from './mainpage/mainpage.component';
 @NgModule({
   declarations: [
     AppComponent,
     LevelComponent,
     TileComponent,
-    TimelineComponent,
-    MenuComponent,
-    MainpageComponent
+    TimelineComponent
+    // MenuComponent,
+    // MainpageComponent
   ],
   imports: [
     BrowserModule,
