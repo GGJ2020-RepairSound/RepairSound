@@ -1,0 +1,28 @@
+<div class="container">
+
+  <p class="description">
+    Balade toi dans l'univers de Musicland et découvre tes pouvoirs artistiques et musicaux infinies. Dans un monde
+    musical encore inconnu...<br>
+
+    L’aventure peut commencer ! Tu devras te frayer un chemin dans chacun de ces mondes plus créatifs les uns que les
+    autres.<br>
+
+    Vis l’aventure avec l’aide de la Violin Family et la Guitar Band auxquels tu pourras donner des ordres via un bouton
+    pour qu'ils t'aident à avancer.<br>
+
+    Saute sur des instruments, des personnages, utilise même les accords de guitare en harmonie.<br>
+
+    Le rythme et le timing sont nécessaires pour venir à bout des niveaux musicaux inédits.<br>
+
+    Bruitages, Rock, Musique Classique, Salsa, tous les genres musicaux y passe. </p>
+
+  <div class="instructions_container" (click)="getClick(clicked)" [ngClass]="{'clicked':clicked === true}">Click for
+    Instructions
+    <p class="instructions">
+      Cliques sur chacuns des instruments pour jouer leurs sons respectif et créer un accord. Tu pourras ajouter des effets sur l'accord en cliquant sur les cases effets.
+      Ton objectif est de recréer le son de chaque niveau.
+      Bon courage !
+    </p>
+  </div>
+  <button class="jouer" routerLink="level/01">JOUER</button>
+</div>
